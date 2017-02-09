@@ -46,33 +46,33 @@ func getOperatorPriority(char : Character) -> Int {
 
 func getExpression(nonRPNString : String) -> String {
     var outputRPNString : String = ""
-    
-    var operatorStack : Stack? = nil
-    var currentOperator : Character?
-    
-    for char in nonRPNString.characters {
-        if isDot(char: char) {
-            continue
-        }
-        print(char)
-        print("\n")
-        if isDigit(char: char) {
-            /*while !isDot(char: char) || !isOperator(char: char) {*/
-                outputRPNString += String(char)
-            //}
-        }
-        if isOperator(char: char) {
-            operatorStack?.push(pushedString: String(char))
-        } else  if !((operatorStack?.isEmpty())!) {
-            currentOperator = Character((operatorStack?.pop()!)!)
-            if getOperatorPriority(char: char) <= getOperatorPriority(char: currentOperator!) {
-                outputRPNString += String(describing: currentOperator)
-            }
-        }
-    }
-    while !((operatorStack?.isEmpty())!) {
-        outputRPNString += String(describing: operatorStack?.pop())
-    }
+//    
+//    var operatorStack : Stack? = nil
+//    var currentOperator : Character?
+//    
+//    for char in nonRPNString.characters {
+//        if isDot(char: char) {
+//            continue
+//        }
+//        print(char)
+//        print("\n")
+//        if isDigit(char: char) {
+//            /*while !isDot(char: char) || !isOperator(char: char) {*/
+//                outputRPNString += String(char)
+//            //}
+//        }
+//        if isOperator(char: char) {
+//            operatorStack?.push(pushedString: String(char))
+//        } else  if !((operatorStack?.isEmpty())!) {
+//            currentOperator = Character((operatorStack?.pop()!)!)
+//            if getOperatorPriority(char: char) <= getOperatorPriority(char: currentOperator!) {
+//                outputRPNString += String(describing: currentOperator)
+//            }
+//        }
+//    }
+//    while !((operatorStack?.isEmpty())!) {
+//        outputRPNString += String(describing: operatorStack?.pop())
+//    }
     return outputRPNString
 }
     

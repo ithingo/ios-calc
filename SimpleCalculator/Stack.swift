@@ -8,38 +8,26 @@
 
 import Foundation
 
-public class Stack {
-    var stackArray = [String]()
+struct Stack {
+    fileprivate var array : [String] = []
     
-    func push(pushedString : String) {
-        self.stackArray.append(pushedString)
+    var isEmpty : Bool {
+        return array.isEmpty
     }
     
-    func pop() -> String? {
-        if self.stackArray.last != nil {
-            var returnedString = stackArray.last
-            self.stackArray.removeLast()
-            return returnedString
-        } else {
-            return nil
-        }
+    var count : Int {
+        return array.count
     }
     
-    func peek() -> String{
-        return stackArray.last!
+    mutating func push(_ pushedString : String) {
+        array.append(pushedString)
     }
     
-    func listValues() {
-        for var str in stackArray {
-            print(str)
-        }
+    mutating func pop() -> String? {
+        return array.popLast()
     }
     
-    func isEmpty() -> Bool {
-        if stackArray.isEmpty == true {
-            return true
-        } else {
-            return false
-        }
+    mutating func peek() -> String{
+        return array.last!
     }
 }
