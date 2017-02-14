@@ -5,7 +5,6 @@ class RPN {
         let postfixExpression = setInfixToPrefixString(infixExpression: dataString)
         let result = evaluatePostfixString(postfixString: postfixExpression)
         let finalResult = checkIfDoubleIsInt(evaluatedDataString: result)
-        print("Final result \(finalResult)")
         return finalResult
     }
     
@@ -69,8 +68,6 @@ class RPN {
             postfixExpression += (stack.popLast())!
         }
         
-        print("RESULT: \(postfixExpression)")
-        
         return postfixExpression
     }
     
@@ -121,11 +118,12 @@ class RPN {
     }
     
     class func checkIfDoubleIsInt(evaluatedDataString : String) -> String {
-        let count = evaluatedDataString.characters.count
+        var finalString = evaluatedDataString
+        let count = finalString.characters.count
         var zerosAfterDotCount = 0
         var otherDigitsWithDotCount = 0
         var isFraction = false
-        for char in evaluatedDataString.characters {
+        for char in finalString.characters {
             if !isFraction {
                 otherDigitsWithDotCount = otherDigitsWithDotCount + 1
             } else {
@@ -138,13 +136,16 @@ class RPN {
         }
         
         if zerosAfterDotCount == count - otherDigitsWithDotCount {
-            let dotRange : Range<String.Index> = evaluatedDataString.range(of: ".")!
-            let dotIndex : Int = evaluatedDataString.distance(from: evaluatedDataString.startIndex, to: dotRange.lowerBound)
+            let dotRange : Range<String.Index> = finalString.range(of: ".")!
+            let dotIndex : Int = finalString.distance(from: finalString.startIndex, to: dotRange.lowerBound)
             
-            let endIndex = evaluatedDataString.index(evaluatedDataString.endIndex, offsetBy: -dotIndex)
-            return evaluatedDataString.substring(to: endIndex)
-        } else {
-            return evaluatedDataString
+            let endIndex = finalString.index(finalString.endIndex, offsetBy: -dotIndex)
+            finalString = finalString.substring(to: endIndex)
+            
+            if finalString.hasSuffix("."){
+                finalString.remove(at: finalString.index(before: finalString.endIndex))
+            }
         }
+        return finalString
     }
 }
