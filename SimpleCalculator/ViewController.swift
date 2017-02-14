@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     @IBAction func setDotIntoExpressionAfterButtonPressed(_ sender: UIButton) {
         let dot = sender.currentTitle!
-        print("\n pushed: \(dot)")
+        print("\npushed: \(dot)")
         print("before: \(countingString)")
         CorrectInputChecker.checkCurrentSymbol(current: dot)
         print("after: \(countingString)")
