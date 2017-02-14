@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     var isTyping = false
     var isFirstOperator = 0
     var isStillTyping = false
-
+    var countingString : String = ""
     var isOnceOperatorSended : Bool = true
     var previousOperator : String = ""
     

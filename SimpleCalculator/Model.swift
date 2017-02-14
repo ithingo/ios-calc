@@ -8,5 +8,5 @@
 
 import Foundation
 
-var countingString : String = ""
+
 
