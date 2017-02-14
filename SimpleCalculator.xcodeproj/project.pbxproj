@@ -12,7 +12,7 @@
 		84338D8B1E052541003CF9A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84338D891E052541003CF9A6 /* Main.storyboard */; };
 		84338D8D1E052541003CF9A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84338D8C1E052541003CF9A6 /* Assets.xcassets */; };
 		84338D901E052541003CF9A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84338D8E1E052541003CF9A6 /* LaunchScreen.storyboard */; };
-		8446D4FE1E52EE0000DA735C /* InfixToPrefixConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D4FD1E52EE0000DA735C /* InfixToPrefixConverter.swift */; };
+		8446D4FE1E52EE0000DA735C /* RPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D4FD1E52EE0000DA735C /* RPN.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		84338D8C1E052541003CF9A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84338D8F1E052541003CF9A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84338D911E052541003CF9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8446D4FD1E52EE0000DA735C /* InfixToPrefixConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfixToPrefixConverter.swift; sourceTree = "<group>"; };
+		8446D4FD1E52EE0000DA735C /* RPN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPN.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				84338D8C1E052541003CF9A6 /* Assets.xcassets */,
 				84338D8E1E052541003CF9A6 /* LaunchScreen.storyboard */,
 				84338D911E052541003CF9A6 /* Info.plist */,
-				8446D4FD1E52EE0000DA735C /* InfixToPrefixConverter.swift */,
+				8446D4FD1E52EE0000DA735C /* RPN.swift */,
 			);
 			path = SimpleCalculator;
 			sourceTree = "<group>";
@@ -140,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84338D881E052541003CF9A6 /* ViewController.swift in Sources */,
-				8446D4FE1E52EE0000DA735C /* InfixToPrefixConverter.swift in Sources */,
+				8446D4FE1E52EE0000DA735C /* RPN.swift in Sources */,
 				84338D861E052541003CF9A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
