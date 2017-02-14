@@ -6,45 +6,31 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
     
-    var isTyping = false
-    var isFirstOperator = 0
-    var isStillTyping = false
-    var countingString : String = ""
-    var isOnceOperatorSended : Bool = true
-    var previousOperator : String = ""
-    
-    
     @IBAction func sendDigitAfterButtonPressed(_ sender: UIButton) {
         let number = sender.currentTitle!
-        if isStillTyping && (displayLabel.text?.characters.count)! < 11  {
-                displayLabel.text = displayLabel.text! + number
-                countingString += String(number)
-        } else {
-            displayLabel.text = number
-            countingString += String(number)
-            isStillTyping = true
-        }
-        isOnceOperatorSended = true
+        print("\n pushed: \(number)")
+        print("before: \(countingString)")
+        CorrectInputChecker.checkCurrentSymbol(current: number)
+        print("after: \(countingString)")
+        displayLabel.text = countingString
     }
 
     @IBAction func sendOperatorAfterButtonPressed(_ sender: UIButton) {
         let operation = sender.currentTitle!
-        if isOnceOperatorSended {
-            let nextOperator : String =  String(operation)
-            if  nextOperator != previousOperator {
-                countingString += String(operation)
-                displayLabel.text = displayLabel.text! + operation
-            }
-            previousOperator = nextOperator
-        }
-        isOnceOperatorSended = false
+        print("\n pushed: \(operation)")
+        print("before: \(countingString)")
+        CorrectInputChecker.checkCurrentSymbol(current: operation)
+        print("after: \(countingString)")
+        displayLabel.text = countingString
     }
     
     @IBAction func setDotIntoExpressionAfterButtonPressed(_ sender: UIButton) {
         let dot = sender.currentTitle!
-        countingString += dot
-        displayLabel.text! += dot
-        
+        print("\n pushed: \(dot)")
+        print("before: \(countingString)")
+        CorrectInputChecker.checkCurrentSymbol(current: dot)
+        print("after: \(countingString)")
+        displayLabel.text = countingString
     }
     @IBAction func removeLastValueAfterButtonPressed(_ sender: UIButton) {
         if (displayLabel.text?.characters.count)! > 0 {
@@ -55,7 +41,7 @@ class ViewController: UIViewController {
         
     }
     @IBAction func countResultAfterButtonPressed(_ sender: UIButton) {
-        displayLabel.text! = RPN.evaluate(dataString: countingString)
+        displayLabel.text = RPN.evaluate(dataString: countingString)
         
     }
     
