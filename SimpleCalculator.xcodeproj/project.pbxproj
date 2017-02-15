@@ -14,7 +14,7 @@
 		84338D901E052541003CF9A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84338D8E1E052541003CF9A6 /* LaunchScreen.storyboard */; };
 		8446D4FE1E52EE0000DA735C /* RPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D4FD1E52EE0000DA735C /* RPN.swift */; };
 		8446D5001E53143000DA735C /* CorrectInputChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D4FF1E53143000DA735C /* CorrectInputChecker.swift */; };
-		8446D5021E53150E00DA735C /* DataString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D5011E53150E00DA735C /* DataString.swift */; };
+		8446D5021E53150E00DA735C /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D5011E53150E00DA735C /* GlobalData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		84338D911E052541003CF9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8446D4FD1E52EE0000DA735C /* RPN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPN.swift; sourceTree = "<group>"; };
 		8446D4FF1E53143000DA735C /* CorrectInputChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectInputChecker.swift; sourceTree = "<group>"; };
-		8446D5011E53150E00DA735C /* DataString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataString.swift; sourceTree = "<group>"; };
+		8446D5011E53150E00DA735C /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 				84338D911E052541003CF9A6 /* Info.plist */,
 				8446D4FD1E52EE0000DA735C /* RPN.swift */,
 				8446D4FF1E53143000DA735C /* CorrectInputChecker.swift */,
-				8446D5011E53150E00DA735C /* DataString.swift */,
+				8446D5011E53150E00DA735C /* GlobalData.swift */,
 			);
 			path = SimpleCalculator;
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8446D5021E53150E00DA735C /* DataString.swift in Sources */,
+				8446D5021E53150E00DA735C /* GlobalData.swift in Sources */,
 				84338D881E052541003CF9A6 /* ViewController.swift in Sources */,
 				8446D4FE1E52EE0000DA735C /* RPN.swift in Sources */,
 				84338D861E052541003CF9A6 /* AppDelegate.swift in Sources */,

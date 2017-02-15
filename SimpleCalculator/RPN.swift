@@ -2,9 +2,10 @@ import Foundation
 
 class RPN {
     class func evaluate(dataString : String) -> String {
-        let postfixExpression = setInfixToPrefixString(infixExpression: dataString)
-        let result = evaluatePostfixString(postfixString: postfixExpression)
-        let finalResult = checkIfDoubleIsInt(evaluatedDataString: result)
+        let postfixExpression   = setInfixToPrefixString(infixExpression: dataString)
+        let result              = evaluatePostfixString(postfixString: postfixExpression)
+        let finalResult         = checkIfDoubleIsInt(evaluatedDataString: result)
+        
         return finalResult
     }
     
@@ -38,7 +39,6 @@ class RPN {
                         stack.append(String(char))
                     }
                 }
-                //  }
                 isPreviousAnOperator = true
             case "+", "-" :
                 if stack.isEmpty {
@@ -50,7 +50,7 @@ class RPN {
                             postfixExpression += " \(curr)"
                         }
                         stack.append(String(char))
-                    } else {      //+-
+                    } else {
                         let curr = (stack.popLast())!
                         stack.append(String(char))
                         postfixExpression += " \(curr)"

@@ -34,9 +34,8 @@ class ViewController: UIViewController {
     }
     @IBAction func removeLastValueAfterButtonPressed(_ sender: UIButton) {
         if (displayLabel.text?.characters.count)! > 0 {
-            let truncatedString = countingString.substring(to: countingString.index(before: countingString.endIndex))
-            countingString = truncatedString
-            displayLabel.text = truncatedString
+            countingString = countingString.substring(to: countingString.index(before: countingString.endIndex))
+            displayLabel.text = countingString
         }
         
     }
