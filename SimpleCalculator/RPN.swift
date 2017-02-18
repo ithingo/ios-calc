@@ -2,7 +2,7 @@ import Foundation
 
 class RPN {
     
-    class func evaluate(dataString : String) -> String {
+    public class func evaluate(dataString : String) -> String {
         let postfixExpression   = setInfixToPrefixString(infixExpression: dataString)
         let result              = evaluatePostfixString(postfixString: postfixExpression)
         let finalResult         = checkIfDoubleIsInt(evaluatedDataString: result)
@@ -10,14 +10,15 @@ class RPN {
         return finalResult
     }
     
-    class func setInfixToPrefixString(infixExpression : String) -> String {
+    private class func setInfixToPrefixString(infixExpression : String) -> String {
+        let digitsWithZero = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         var postfixExpression : String = ""
         var stack : [String] = []
         var isPreviousAnOperator : Bool = false
         
         for char in infixExpression.characters {
             switch String(char) {
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" :
+            case digitsWithZero:
                 if isPreviousAnOperator {
                     postfixExpression += " "
                 }
@@ -72,7 +73,9 @@ class RPN {
         return postfixExpression
     }
     
-    class func evaluatePostfixString(postfixString : String) -> String {
+    private class func evaluatePostfixString(postfixString : String) -> String {
+        let digitsWithZeroAndDot = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+        
         var postfixStringArray : [Character] = []
         
         for char in postfixString.characters {
@@ -83,8 +86,8 @@ class RPN {
         var stack : [String] = []
         
         for elem in postfixStringArray {
-            switch elem {
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".":
+            switch String(elem) {
+            case digitsWithZeroAndDot:
                 arg = arg + String(elem)
             case " ":
                 stack.append(arg)
@@ -118,7 +121,7 @@ class RPN {
      
     }
     
-    class func checkIfDoubleIsInt(evaluatedDataString : String) -> String {
+    private class func checkIfDoubleIsInt(evaluatedDataString : String) -> String {
         var finalString = evaluatedDataString
         let count = finalString.characters.count
         var zerosAfterDotCount = 0
