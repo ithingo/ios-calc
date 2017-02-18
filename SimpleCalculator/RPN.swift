@@ -2,8 +2,6 @@ import Foundation
 
 class RPN {
     
-    
-    
     class func evaluate(dataString : String) -> String {
         let postfixExpression   = setInfixToPrefixString(infixExpression: dataString)
         let result              = evaluatePostfixString(postfixString: postfixExpression)
@@ -138,16 +136,8 @@ class RPN {
             }
         }
         
-        if zerosAfterDotCount == count - otherDigitsWithDotCount {
-            let dotRange : Range<String.Index> = finalString.range(of: ".")!
-            let dotIndex : Int = finalString.distance(from: finalString.startIndex, to: dotRange.lowerBound)
-            
-            let endIndex = finalString.index(finalString.endIndex, offsetBy: -dotIndex)
-            finalString = finalString.substring(to: endIndex)
-            
-            if finalString.hasSuffix("."){
-                finalString.remove(at: finalString.index(before: finalString.endIndex))
-            }
+        if zerosAfterDotCount == count - otherDigitsWithDotCount && finalString.hasSuffix(".") {
+            finalString.remove(at: finalString.index(before: finalString.endIndex))
         }
         return finalString
     }

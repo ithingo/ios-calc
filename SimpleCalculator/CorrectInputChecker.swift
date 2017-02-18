@@ -1,11 +1,6 @@
 
 import Foundation
 
-//Pattern for using arrays in switch-case in CorrectInputChecker
-func ~= <T : Equatable> (array : [T], value: T) -> Bool {
-    return array.contains(value)
-}
-
 class CorrectInputChecker {
     private var infixString : String = ""
     private let dot : String       = "."
