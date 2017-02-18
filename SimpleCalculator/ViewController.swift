@@ -10,7 +10,8 @@ class ViewController: UIViewController {
         let number = sender.currentTitle!
         print("\n pushed: \(number)")
         print("before: \(countingString)")
-        CorrectInputChecker.checkCurrentSymbol(current: number)
+        var checker = CorrectInputChecker(countingString)
+        checker.checkCurrentSymbol(current: number)
         print("after: \(countingString)")
         displayLabel.text = countingString
     }
@@ -19,7 +20,8 @@ class ViewController: UIViewController {
         let operation = sender.currentTitle!
         print("\n pushed: \(operation)")
         print("before: \(countingString)")
-        CorrectInputChecker.checkCurrentSymbol(current: operation)
+        var checker = CorrectInputChecker(countingString)
+        checker.checkCurrentSymbol(current: operation)
         print("after: \(countingString)")
         displayLabel.text = countingString
     }
@@ -28,15 +30,14 @@ class ViewController: UIViewController {
         let dot = sender.currentTitle!
         print("\npushed: \(dot)")
         print("before: \(countingString)")
-        CorrectInputChecker.checkCurrentSymbol(current: dot)
+        var checker = CorrectInputChecker(countingString)
+        checker.checkCurrentSymbol(current: dot)
         print("after: \(countingString)")
         displayLabel.text = countingString
     }
     @IBAction func removeLastValueAfterButtonPressed(_ sender: UIButton) {
-        if (displayLabel.text?.characters.count)! > 0 {
-            countingString = countingString.substring(to: countingString.index(before: countingString.endIndex))
-            displayLabel.text = countingString
-        }
+        var checker = CorrectInputChecker(countingString)
+        displayLabel.text = checker.removeLastCheckingDotWithReturnChangedDataString()
         
     }
     @IBAction func countResultAfterButtonPressed(_ sender: UIButton) {
