@@ -78,8 +78,6 @@ class CorrectInputChecker {
         if currentChar == "0" || digitsWithoutZero.contains(currentChar) {
             infixString += currentChar
             IS_INPUTING_A_NUMBER = true
-            print(currentChar)
-            print("Empty: im here")
         }
         return infixString
     }
@@ -90,19 +88,17 @@ class CorrectInputChecker {
             if dotCount == 0 {
                 IS_INPUTING_A_NUMBER = true
                 infixString += currentChar
-                IS_THERE_A_DOT = true
-                print("Added dot in srt with zero \(currentChar)\n")
+                dotCount += 1
             }
         case operators:
+            dotCount = 0
             IS_INPUTING_A_NUMBER = false
             infixString += currentChar
-            print("Added operand  in srt with zero\(currentChar)\n")
         case zero: fallthrough
         case digitsWithoutZero:
             IS_INPUTING_A_NUMBER = true
             infixString.remove(at: infixString.index(before: infixString.endIndex))
             infixString += currentChar
-            print("Added digit in srt with zero \(currentChar)\n")
         default:
             print("Error in srt with zero \(infixString)")
         }
@@ -113,20 +109,17 @@ class CorrectInputChecker {
         if PREVIOUS_CHAR_IS_POSITIVE_DIGIT || PREVIOUS_CHAR_IS_ZERO {
             switch currentChar {
             case dot:
-                if !(IS_THERE_A_DOT!) {
+                if dotCount == 0 {
                     infixString += currentChar
-                    IS_THERE_A_DOT = true
-                    print("Added dot after digit\(currentChar)\n")
+                    dotCount += 1
                 }
             case operators:
+                dotCount = 0
                 IS_INPUTING_A_NUMBER = false
                 infixString += currentChar
-                print("Added operand after digit\(currentChar)\n")
             case zero: fallthrough
             case digitsWithoutZero:
-                print("ATTENSION!!! \(currentChar)")
                 infixString += currentChar
-                print("Added digit \(currentChar)\n")
             default:
                 print("Error in after digit\(infixString)")
             }
@@ -163,11 +156,11 @@ class CorrectInputChecker {
         print(countingString)
     }
     
-    public func removeLastCheckingDotWithReturnChangedDataString() -> String {
-        var changedString = infixString
+    static public func removeLastCheckingDotWithReturnChangedDataString() -> String {
+        var changedString = countingString
         if changedString.characters.count > 0 {
             if changedString.hasSuffix(".") {
-                IS_THERE_A_DOT = true
+                dotCount = 0
             }
             changedString = changedString.substring(to: changedString.index(before: changedString.endIndex))
         }

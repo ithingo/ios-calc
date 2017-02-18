@@ -8,36 +8,27 @@ class ViewController: UIViewController {
     
     @IBAction func sendDigitAfterButtonPressed(_ sender: UIButton) {
         let number = sender.currentTitle!
-        print("\n pushed: \(number)")
-        print("before: \(countingString)")
         var checker = CorrectInputChecker(countingString)
         checker.checkCurrentSymbol(current: number)
-        print("after: \(countingString)")
         displayLabel.text = countingString
     }
 
     @IBAction func sendOperatorAfterButtonPressed(_ sender: UIButton) {
         let operation = sender.currentTitle!
-        print("\n pushed: \(operation)")
-        print("before: \(countingString)")
         var checker = CorrectInputChecker(countingString)
         checker.checkCurrentSymbol(current: operation)
-        print("after: \(countingString)")
         displayLabel.text = countingString
     }
     
     @IBAction func setDotIntoExpressionAfterButtonPressed(_ sender: UIButton) {
         let dot = sender.currentTitle!
-        print("\npushed: \(dot)")
-        print("before: \(countingString)")
         var checker = CorrectInputChecker(countingString)
         checker.checkCurrentSymbol(current: dot)
-        print("after: \(countingString)")
         displayLabel.text = countingString
     }
     @IBAction func removeLastValueAfterButtonPressed(_ sender: UIButton) {
-        var checker = CorrectInputChecker(countingString)
-        displayLabel.text = checker.removeLastCheckingDotWithReturnChangedDataString()
+        countingString = CorrectInputChecker.removeLastCheckingDotWithReturnChangedDataString()
+        displayLabel.text! = countingString // checker.removeLastCheckingDotWithReturnChangedDataString()
         
     }
     @IBAction func countResultAfterButtonPressed(_ sender: UIButton) {
@@ -51,7 +42,7 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 

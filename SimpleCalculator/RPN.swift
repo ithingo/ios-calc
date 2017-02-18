@@ -1,6 +1,9 @@
 import Foundation
 
 class RPN {
+    
+    
+    
     class func evaluate(dataString : String) -> String {
         let postfixExpression   = setInfixToPrefixString(infixExpression: dataString)
         let result              = evaluatePostfixString(postfixString: postfixExpression)
